@@ -2,6 +2,8 @@
 
 Translated by OOPer in cooperation with shlab.jp, on 2014/10/3.
 
+Adapted to Swift 1.2 beta2 on 2015/3/1.
+
 Based on
 <https://developer.apple.com/library/ios/samplecode/LazyTableImages/Introduction/Intro.html#//apple_ref/doc/uid/DTS40009394>
 2014-10-02.
@@ -13,7 +15,7 @@ You should not contact to Apple or SHLab(jp) about any faults caused by my trans
 ===========================================================================
 BUILD REQUIREMENTS:
 
-iOS 8.1 SDK or later
+Xcode 6.3 beta2, iOS SDK 8.3
 
 ===========================================================================
 RUNTIME REQUIREMENTS:

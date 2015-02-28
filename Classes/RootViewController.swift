@@ -171,11 +171,11 @@ class RootViewController : UITableViewController {
         
         if (nodeCount ?? 0) == 0 && indexPath.row == 0 {
             // add a placeholder cell while waiting on table data
-            cell = (tableView.dequeueReusableCellWithIdentifier(PlaceHolderCellIdentifier, forIndexPath: indexPath) as MyTableViewCell)
+            cell = (tableView.dequeueReusableCellWithIdentifier(PlaceHolderCellIdentifier, forIndexPath: indexPath) as! MyTableViewCell)
             
             cell!.detailTextLabel!.text = "Loading…"
         } else {
-            cell = (tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as MyTableViewCell)
+            cell = (tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! MyTableViewCell)
             
             // Leave cells empty if there's no data yet
             if (nodeCount ?? 0) > 0 {
@@ -237,7 +237,7 @@ class RootViewController : UITableViewController {
     private func loadImagesForOnscreenRows() {
         if (self.entries?.count ?? 0) > 0 {
             let visiblePaths = self.tableView.indexPathsForVisibleRows()!
-            for indexPath in visiblePaths as [NSIndexPath] {
+            for indexPath in visiblePaths as! [NSIndexPath] {
                 let appRecord = self.entries![indexPath.row]
                 
                 // Avoid the app icon download if the app already has an icon

@@ -158,7 +158,7 @@ class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnection
         
         if error.code == Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue) {
             // if we can identify the error, we can present a more precise message to the user.
-            let userInfo : NSDictionary = [NSLocalizedDescriptionKey : "No Connection Error"]
+            let userInfo : [NSObject : AnyObject] = [NSLocalizedDescriptionKey : "No Connection Error"]
             let noConnectionError = NSError(domain: NSCocoaErrorDomain,
                 code: Int(CFNetworkErrors.CFURLErrorNotConnectedToInternet.rawValue),
                 userInfo: userInfo)
@@ -204,8 +204,8 @@ class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnection
                 dispatch_async(dispatch_get_main_queue()) {
                     // The root rootViewController is the only child of the navigation
                     // controller, which is the window's rootViewController.
-                    let rootViewController = (self.window!.rootViewController as UINavigationController) .
-                        topViewController as RootViewController
+                    let rootViewController = (self.window!.rootViewController as! UINavigationController) .
+                        topViewController as! RootViewController
                     
                     rootViewController.entries = parser!.appRecordList
                     

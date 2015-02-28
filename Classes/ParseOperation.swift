@@ -113,7 +113,7 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
         // desirable because it gives less control over the network, particularly in responding to
         // connection errors.
         //
-        let parser = NSXMLParser(data: self.dataToParse)
+        let parser = NSXMLParser(data: self.dataToParse!)
         parser.delegate = self
         parser.parse()
         
@@ -133,7 +133,7 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:didStartElement:namespaceURI:qualifiedName:attributes:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]!) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         // entry: { id (link), im:name (app name), im:image (variable height) }
         //
         if elementName == kEntryStr {
@@ -145,7 +145,7 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:didEndElement:namespaceURI:qualifiedName:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if self.workingEntry != nil {
             if self.storingCharacterData {
                 let trimmedString = self.workingPropertyString?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
@@ -172,16 +172,16 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:foundCharacters:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if storingCharacterData {
-            self.workingPropertyString? += string
+            self.workingPropertyString? += string!
         }
     }
     
     // -------------------------------------------------------------------------------
     //	parser:parseErrorOccurred:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser!, parseErrorOccurred parseError: NSError!) {
+    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         self.errorHandler?(parseError)
     }
     
