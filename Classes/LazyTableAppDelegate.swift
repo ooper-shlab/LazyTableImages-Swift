@@ -204,7 +204,7 @@ class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnection
                 dispatch_async(dispatch_get_main_queue()) {
                     // The root rootViewController is the only child of the navigation
                     // controller, which is the window's rootViewController.
-                    let rootViewController = (self.window!.rootViewController as! UINavigationController) .
+                    let rootViewController = (self.window?.rootViewController as! UINavigationController?)? .
                         topViewController as! RootViewController
                     
                     rootViewController.entries = parser!.appRecordList
