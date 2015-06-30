@@ -127,7 +127,7 @@ class IconDownloader : NSObject, NSURLConnectionDataDelegate {
             UIGraphicsBeginImageContextWithOptions(itemSize, false, 0.0)
             let imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height)
             image.drawInRect(imageRect)
-            self.appRecord?.appIcon = UIGraphicsGetImageFromCurrentImageContext()!
+            self.appRecord?.appIcon = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
         } else {
             self.appRecord?.appIcon = image

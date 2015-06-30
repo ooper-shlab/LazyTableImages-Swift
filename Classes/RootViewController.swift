@@ -236,8 +236,8 @@ class RootViewController : UITableViewController {
     // -------------------------------------------------------------------------------
     private func loadImagesForOnscreenRows() {
         if (self.entries?.count ?? 0) > 0 {
-            let visiblePaths = self.tableView.indexPathsForVisibleRows()!
-            for indexPath in visiblePaths as! [NSIndexPath] {
+            let visiblePaths = self.tableView.indexPathsForVisibleRows!
+            for indexPath in visiblePaths as [NSIndexPath] {
                 let appRecord = self.entries![indexPath.row]
                 
                 // Avoid the app icon download if the app already has an icon

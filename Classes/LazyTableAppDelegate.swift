@@ -107,7 +107,7 @@ class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnection
     // -------------------------------------------------------------------------------
     func handleError(error: NSError) {
         let errorMessage = error.localizedDescription
-        if objc_getClass("UIAlertController") != nil {
+        if #available(iOS 8.0, *) {
             let alert = UIAlertController(title: "Cannot Show Top Paid Apps",
                 message: errorMessage,
                 preferredStyle: .Alert)

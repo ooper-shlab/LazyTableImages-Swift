@@ -15,6 +15,7 @@
 		D72B37BB19DE9745002CB69A /* IconDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B37BA19DE9745002CB69A /* IconDownloader.swift */; };
 		D72B37BF19DF6287002CB69A /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CEDA19DE3CBD0025EB3F /* ParseOperation.swift */; };
 		D72B37C019DF628F002CB69A /* LazyTableAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CED819DE30A30025EB3F /* LazyTableAppDelegate.swift */; };
+		D7F1AAD51B426773000DBF82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F1AAD41B426773000DBF82 /* LaunchScreen.storyboard */; };
 		D7F6CEDD19DE4EE50025EB3F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CEDC19DE4EE50025EB3F /* RootViewController.swift */; };
 		D7F6CEDF19DE519A0025EB3F /* AppRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CEDE19DE519A0025EB3F /* AppRecord.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		D09A9ECC17177DEF00C15A46 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D72B37BA19DE9745002CB69A /* IconDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconDownloader.swift; sourceTree = "<group>"; };
 		D7E7152D1A88E19B0075D20E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D7F1AAD41B426773000DBF82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7F6CED819DE30A30025EB3F /* LazyTableAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyTableAppDelegate.swift; sourceTree = "<group>"; };
 		D7F6CEDA19DE3CBD0025EB3F /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
 		D7F6CEDC19DE4EE50025EB3F /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D7F1AAD41B426773000DBF82 /* LaunchScreen.storyboard */,
 				535BD4A319ABE8DE00017824 /* Images.xcassets */,
 				D09A9ECD17177DEF00C15A46 /* MainStoryboard.storyboard */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -129,7 +132,8 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LazyTableImages" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -156,6 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F1AAD51B426773000DBF82 /* LaunchScreen.storyboard in Resources */,
 				535BD4A419ABE8DE00017824 /* Images.xcassets in Resources */,
 				D09A9ECB17177DEF00C15A46 /* MainStoryboard.storyboard in Resources */,
 			);
@@ -210,8 +215,9 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = LazyTable;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -237,8 +243,9 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = LazyTable;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -251,6 +258,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
@@ -260,7 +268,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -284,7 +292,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;

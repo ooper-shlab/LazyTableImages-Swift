@@ -133,13 +133,13 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:didStartElement:namespaceURI:qualifiedName:attributes:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
         // entry: { id (link), im:name (app name), im:image (variable height) }
         //
         if elementName == kEntryStr {
             self.workingEntry = AppRecord()
         }
-        self.storingCharacterData = find(self.elementsToParse, elementName) != nil
+        self.storingCharacterData = self.elementsToParse.indexOf(elementName) != nil
     }
     
     // -------------------------------------------------------------------------------
@@ -172,9 +172,9 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:foundCharacters:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser, foundCharacters string: String?) {
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
         if storingCharacterData {
-            self.workingPropertyString? += string!
+            self.workingPropertyString? += string
         }
     }
     
