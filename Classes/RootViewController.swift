@@ -82,7 +82,7 @@ class MyTableViewCell : UITableViewCell, UIScrollViewDelegate {
 @objc(RootViewController)
 class RootViewController : UITableViewController {
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
