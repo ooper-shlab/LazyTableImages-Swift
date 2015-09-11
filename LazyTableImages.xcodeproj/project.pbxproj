@@ -26,7 +26,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D7BE5CD71BA3371500BA1331 /* README2.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README2.md; sourceTree = "<group>"; };
-		D7BE5CD91BA3374600BA1331 /* _ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = _ReadMe.md; sourceTree = "<group>"; };
+		D7BE5CD91BA3374600BA1331 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		D7BE5CDB1BA3376D00BA1331 /* AppRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRecord.swift; path = LazyTableImages/Classes/AppRecord.swift; sourceTree = "<group>"; };
 		D7BE5CDC1BA3376D00BA1331 /* IconDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconDownloader.swift; path = LazyTableImages/Classes/IconDownloader.swift; sourceTree = "<group>"; };
 		D7BE5CDD1BA3376D00BA1331 /* LazyTableAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LazyTableAppDelegate.swift; path = LazyTableImages/Classes/LazyTableAppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D7BE5CD91BA3374600BA1331 /* _ReadMe.md */,
+				D7BE5CD91BA3374600BA1331 /* ReadMe.md */,
 				D7BE5CD71BA3371500BA1331 /* README2.md */,
 				D7BE5CE51BA3377A00BA1331 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
