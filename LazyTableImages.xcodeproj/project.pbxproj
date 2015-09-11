@@ -10,14 +10,14 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		535BD4A419ABE8DE00017824 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535BD4A319ABE8DE00017824 /* Images.xcassets */; };
-		D09A9ECB17177DEF00C15A46 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09A9ECD17177DEF00C15A46 /* MainStoryboard.storyboard */; };
-		D72B37BB19DE9745002CB69A /* IconDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B37BA19DE9745002CB69A /* IconDownloader.swift */; };
-		D72B37BF19DF6287002CB69A /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CEDA19DE3CBD0025EB3F /* ParseOperation.swift */; };
-		D72B37C019DF628F002CB69A /* LazyTableAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CED819DE30A30025EB3F /* LazyTableAppDelegate.swift */; };
-		D7F1AAD51B426773000DBF82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F1AAD41B426773000DBF82 /* LaunchScreen.storyboard */; };
-		D7F6CEDD19DE4EE50025EB3F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CEDC19DE4EE50025EB3F /* RootViewController.swift */; };
-		D7F6CEDF19DE519A0025EB3F /* AppRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6CEDE19DE519A0025EB3F /* AppRecord.swift */; };
+		D7BE5CE01BA3376D00BA1331 /* AppRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE5CDB1BA3376D00BA1331 /* AppRecord.swift */; };
+		D7BE5CE11BA3376D00BA1331 /* IconDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE5CDC1BA3376D00BA1331 /* IconDownloader.swift */; };
+		D7BE5CE21BA3376D00BA1331 /* LazyTableAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE5CDD1BA3376D00BA1331 /* LazyTableAppDelegate.swift */; };
+		D7BE5CE31BA3376D00BA1331 /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE5CDE1BA3376D00BA1331 /* ParseOperation.swift */; };
+		D7BE5CE41BA3376D00BA1331 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE5CDF1BA3376D00BA1331 /* RootViewController.swift */; };
+		D7BE5CEA1BA3379C00BA1331 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE5CE61BA3379C00BA1331 /* LaunchScreen.storyboard */; };
+		D7BE5CEB1BA3379C00BA1331 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BE5CE81BA3379C00BA1331 /* MainStoryboard.storyboard */; };
+		D7BE5CEE1BA337B100BA1331 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7BE5CEC1BA337B100BA1331 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,17 +25,17 @@
 		1D6058910D05DD3D006BFB54 /* LazyTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazyTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		535BD4A319ABE8DE00017824 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D021FFB1170E44B60060B02B /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
-		D09A9ECC17177DEF00C15A46 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D72B37BA19DE9745002CB69A /* IconDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconDownloader.swift; sourceTree = "<group>"; };
-		D7E7152D1A88E19B0075D20E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D7F1AAD41B426773000DBF82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D7F6CED819DE30A30025EB3F /* LazyTableAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyTableAppDelegate.swift; sourceTree = "<group>"; };
-		D7F6CEDA19DE3CBD0025EB3F /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
-		D7F6CEDC19DE4EE50025EB3F /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		D7F6CEDE19DE519A0025EB3F /* AppRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRecord.swift; sourceTree = "<group>"; };
+		D7BE5CD71BA3371500BA1331 /* README2.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README2.md; sourceTree = "<group>"; };
+		D7BE5CD91BA3374600BA1331 /* _ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = _ReadMe.md; sourceTree = "<group>"; };
+		D7BE5CDB1BA3376D00BA1331 /* AppRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRecord.swift; path = LazyTableImages/Classes/AppRecord.swift; sourceTree = "<group>"; };
+		D7BE5CDC1BA3376D00BA1331 /* IconDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconDownloader.swift; path = LazyTableImages/Classes/IconDownloader.swift; sourceTree = "<group>"; };
+		D7BE5CDD1BA3376D00BA1331 /* LazyTableAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LazyTableAppDelegate.swift; path = LazyTableImages/Classes/LazyTableAppDelegate.swift; sourceTree = "<group>"; };
+		D7BE5CDE1BA3376D00BA1331 /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseOperation.swift; path = LazyTableImages/Classes/ParseOperation.swift; sourceTree = "<group>"; };
+		D7BE5CDF1BA3376D00BA1331 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = LazyTableImages/Classes/RootViewController.swift; sourceTree = "<group>"; };
+		D7BE5CE71BA3379C00BA1331 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = LazyTableImages/en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D7BE5CE91BA3379C00BA1331 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = LazyTableImages/en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D7BE5CEC1BA337B100BA1331 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LazyTableImages/Images.xcassets; sourceTree = "<group>"; };
+		D7BE5CED1BA337B100BA1331 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LazyTableImages/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,18 +52,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D7F6CED819DE30A30025EB3F /* LazyTableAppDelegate.swift */,
-				D7F6CEDE19DE519A0025EB3F /* AppRecord.swift */,
-				D7F6CEDA19DE3CBD0025EB3F /* ParseOperation.swift */,
-				D72B37BA19DE9745002CB69A /* IconDownloader.swift */,
-				D7F6CEDC19DE4EE50025EB3F /* RootViewController.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,9 +63,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D7E7152D1A88E19B0075D20E /* README.md */,
-				D021FFB1170E44B60060B02B /* ReadMe.txt */,
-				080E96DDFE201D6D7F000001 /* Classes */,
+				D7BE5CD91BA3374600BA1331 /* _ReadMe.md */,
+				D7BE5CD71BA3371500BA1331 /* README2.md */,
+				D7BE5CE51BA3377A00BA1331 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -88,10 +76,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D7F1AAD41B426773000DBF82 /* LaunchScreen.storyboard */,
-				535BD4A319ABE8DE00017824 /* Images.xcassets */,
-				D09A9ECD17177DEF00C15A46 /* MainStoryboard.storyboard */,
-				8D1107310486CEB800E47090 /* Info.plist */,
+				D7BE5CEC1BA337B100BA1331 /* Images.xcassets */,
+				D7BE5CED1BA337B100BA1331 /* Info.plist */,
+				D7BE5CE61BA3379C00BA1331 /* LaunchScreen.storyboard */,
+				D7BE5CE81BA3379C00BA1331 /* MainStoryboard.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -104,6 +92,18 @@
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7BE5CE51BA3377A00BA1331 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE5CDB1BA3376D00BA1331 /* AppRecord.swift */,
+				D7BE5CDC1BA3376D00BA1331 /* IconDownloader.swift */,
+				D7BE5CDD1BA3376D00BA1331 /* LazyTableAppDelegate.swift */,
+				D7BE5CDE1BA3376D00BA1331 /* ParseOperation.swift */,
+				D7BE5CDF1BA3376D00BA1331 /* RootViewController.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +132,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LazyTableImages" */;
@@ -160,9 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7F1AAD51B426773000DBF82 /* LaunchScreen.storyboard in Resources */,
-				535BD4A419ABE8DE00017824 /* Images.xcassets in Resources */,
-				D09A9ECB17177DEF00C15A46 /* MainStoryboard.storyboard in Resources */,
+				D7BE5CEE1BA337B100BA1331 /* Images.xcassets in Resources */,
+				D7BE5CEB1BA3379C00BA1331 /* MainStoryboard.storyboard in Resources */,
+				D7BE5CEA1BA3379C00BA1331 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,21 +173,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72B37C019DF628F002CB69A /* LazyTableAppDelegate.swift in Sources */,
-				D72B37BB19DE9745002CB69A /* IconDownloader.swift in Sources */,
-				D72B37BF19DF6287002CB69A /* ParseOperation.swift in Sources */,
-				D7F6CEDD19DE4EE50025EB3F /* RootViewController.swift in Sources */,
-				D7F6CEDF19DE519A0025EB3F /* AppRecord.swift in Sources */,
+				D7BE5CE41BA3376D00BA1331 /* RootViewController.swift in Sources */,
+				D7BE5CE01BA3376D00BA1331 /* AppRecord.swift in Sources */,
+				D7BE5CE11BA3376D00BA1331 /* IconDownloader.swift in Sources */,
+				D7BE5CE21BA3376D00BA1331 /* LazyTableAppDelegate.swift in Sources */,
+				D7BE5CE31BA3376D00BA1331 /* ParseOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D09A9ECD17177DEF00C15A46 /* MainStoryboard.storyboard */ = {
+		D7BE5CE61BA3379C00BA1331 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D09A9ECC17177DEF00C15A46 /* en */,
+				D7BE5CE71BA3379C00BA1331 /* en */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D7BE5CE81BA3379C00BA1331 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7BE5CE91BA3379C00BA1331 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -214,7 +222,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LazyTableImages/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:identifier}";
@@ -242,7 +250,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LazyTableImages/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:identifier}";
