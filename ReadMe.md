@@ -1,80 +1,31 @@
-### LazyTableImages ###
+# LazyTableImages
 
-===========================================================================
-DESCRIPTION:
+This sample demonstrates a multi-stage approach to loading and displaying a UITableView. It displays the top paid iOS apps on Apple's App Store.
 
-This sample demonstrates a multi-stage approach to loading and displaying a 
-UITableView.  It displays the top paid iPhone apps on Apple's App Store.
+It begins by loading the relevant text from the RSS feed so the table can load as quickly as possible, then downloads the app icons for each row asynchronously so the user interface is more responsive.
 
-It begins by loading the relevant text from the RSS feed so the table can load
-as quickly as possible, then downloads the app images for each row asynchronously
-so the UI is more responsive.
-
-===========================================================================
-BUILD REQUIREMENTS:
-
-iOS 7.0 SDK or later
-
-===========================================================================
-RUNTIME REQUIREMENTS:
-
-iOS 6.0 or later
-
-===========================================================================
-PACKAGING LIST:
+## Packaging Pist
 
 LazyTableAppDelegate.{h/m}
-    The app delegate class that downloads in the background the
-    "Top Paid iPhone Apps" RSS feed using NSURLConnection.
+The app delegate class that downloads in the background the "Top Paid iOS Apps" RSS feed using NSURLSession.
 
 AppRecord.{h/m}
-    Wrapper object for each data entry, corresponding to a row in the table.
+Wrapper object for each data entry, corresponding to a row in the table.
 
 RootViewController.{h/m}
-    UITableViewController subclass that builds the table view in multiple stages,
-    using feed data obtained from the LazyTableAppDelegate.
+UITableViewController subclass that builds the table view in multiple stages, using feed data obtained from the LazyTableAppDelegate.
 
 ParseOperation.{h/m}
-    Helper NSOperation object used to parse the XML RSS feed loaded by LazyTableAppDelegate.
+Helper NSOperation object used to parse the XML RSS feed loaded by LazyTableAppDelegate.
 
 IconDownloader.{h/m}
-    Helper object for managing the downloading of a particular app's icon.
-    As a delegate "NSURLConnectionDelegate" is downloads the app icon in the background if it does not
-    yet exist and works in conjunction with the RootViewController to manage which apps need their icon.
+Helper object for managing the downloading of a particular app's icon. It uses NSURLSession/NSURLSessionDataTask to download the app's icon in the background if it does not yet exist and works in conjunction with the RootViewController to manage which apps need their icon.
 
-===========================================================================
-CHANGES FROM PREVIOUS VERSIONS:
+## Build Requirements
++ Xcode 7 or later
++ iOS 9.0 SDK or later
 
-Version 1.5
-- Changed deployment target to 6.0 for Auto Layout.
-- Now uses Xcode’s image assets.
-- Pending or current image downloads now cancelled on dealloc.
-- Ipdated to use modern Objective-C syntax.
+## Runtime Requirements
++ iOS 7.0 or later
 
-Version 1.4
-- Migrated to Storyboards and ARC.
-- Upgraded to build with the iOS 6 SDK.
-- Added support for devices with 4" retina displays.
-- Modified IconDownloader to use blocks for its callback instead of delegation.
-
-Version 1.3
-- Upgraded project to build with the iOS 5 SDK.
-- Deployment target set to iOS 5.
-- Fixed an analyzer warning in LazyTableAppDelegate.
-- Fixed a subtle memory leak in RootViewController.
-- Changed ParseOperation to use blocks for its callbacks instead of delegation.
-- Updated initial nib loading and app window setup to reflect the most recent recommended practices.
-- Renamed a defined constant in IconDownloader to be less confusing.
-- Fixed a bug in IconDownloader that may cause a downloaded app icon to not be resized properly.
-
-Version 1.2
-- Deployment target set to iPhone OS 3.2.
-
-Version 1.1
-- Fixed crashing bug in didReceiveMemoryWarning, upgraded project to build with the iOS 4 SDK.
-
-Version 1.0
-- First version.
-
-===========================================================================
-Copyright (C) 2010-2014 Apple Inc. All rights reserved.
+Copyright (C) 2010-2015 Apple Inc. All rights reserved.
