@@ -25,7 +25,7 @@ class IconDownloader : NSObject, NSURLConnectionDataDelegate {
     var appRecord: AppRecord?
     var completionHandler: (() -> Void)?
     
-    private var sessionTask: NSURLSessionDataTask?
+    private var sessionTask: URLSessionDataTask?
     
     
     //MARK: -
@@ -34,16 +34,16 @@ class IconDownloader : NSObject, NSURLConnectionDataDelegate {
     //	startDownload
     // -------------------------------------------------------------------------------
     func startDownload() {
-        let request = NSURLRequest(URL: NSURL(string: self.appRecord!.imageURLString!)!)
+        let request = URLRequest(url: URL(string: self.appRecord!.imageURLString!)!)
         
         // create an session data task to obtain and download the app icon
-        sessionTask = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        sessionTask = URLSession.shared.dataTask(with: request, completionHandler: {
             data, response, error in
             
             // in case we want to know the response status code
-            //let HTTPStatusCode = (response as! NSHTTPURLResponse).statusCode
+            //let httpStatusCode = (response as! HTTPURLResponse).statusCode
             
-            if let actualError = error {
+            if let actualError = error as NSError? {
                 if #available(iOS 9.0, *) {
                     if actualError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
                         // if you get error NSURLErrorAppTransportSecurityRequiresSecureConnection (-1022),
@@ -54,16 +54,16 @@ class IconDownloader : NSObject, NSURLConnectionDataDelegate {
                 }
             }
             
-            NSOperationQueue.mainQueue().addOperationWithBlock{
+            OperationQueue.main.addOperation{
                 
                 // Set appIcon and clear temporary data/image
                 let image = UIImage(data: data!)!
                 
                 if image.size.width != kAppIconSize || image.size.height != kAppIconSize {
-                    let itemSize = CGSizeMake(kAppIconSize, kAppIconSize)
+                    let itemSize = CGSize(width: kAppIconSize, height: kAppIconSize)
                     UIGraphicsBeginImageContextWithOptions(itemSize, false, 0.0)
-                    let imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height)
-                    image.drawInRect(imageRect)
+                    let imageRect = CGRect(x: 0.0, y: 0.0, width: itemSize.width, height: itemSize.height)
+                    image.draw(in: imageRect)
                     self.appRecord!.appIcon = UIGraphicsGetImageFromCurrentImageContext()
                     UIGraphicsEndImageContext()
                 } else {
@@ -73,7 +73,7 @@ class IconDownloader : NSObject, NSURLConnectionDataDelegate {
                 // call our completion handler to tell our client that our icon is ready for display
                 self.completionHandler?()
             }
-        }
+        }) 
         
         self.sessionTask?.resume()
     }

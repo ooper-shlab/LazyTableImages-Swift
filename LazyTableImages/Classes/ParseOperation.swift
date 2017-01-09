@@ -14,10 +14,10 @@
  */
 
 import Foundation
-class ParseOperation: NSOperation, NSXMLParserDelegate {
+class ParseOperation: Operation, XMLParserDelegate {
     
     // A block to call when an error is encountered during parsing.
-    var errorHandler: (NSError -> Void)?
+    var errorHandler: ((Error) -> Void)?
     
     // NSArray containing AppRecord instances for each entry parsed
     // from the input data.
@@ -34,10 +34,10 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     let kEntryStr = "entry"
     
     
-    private var dataToParse: NSData?
-    private var workingArray: [AppRecord]?
+    private var dataToParse: Data
+    private var workingArray: [AppRecord] = []
     private var workingEntry: AppRecord?
-    private var workingPropertyString: String?
+    private var workingPropertyString: String = ""
     private var elementsToParse: [String]
     private var storingCharacterData: Bool = false
     
@@ -49,7 +49,7 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     //	initWithData:
     // -------------------------------------------------------------------------------
     // The initializer for this NSOperation subclass.
-    init(data: NSData) {
+    init(data: Data) {
         dataToParse = data
         elementsToParse = [kIDStr, kNameStr, kImageStr, kArtistStr]
     }
@@ -72,18 +72,18 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
         // desirable because it gives less control over the network, particularly in responding to
         // connection errors.
         //
-        let parser = NSXMLParser(data: self.dataToParse!)
+        let parser = XMLParser(data: self.dataToParse)
         parser.delegate = self
         parser.parse()
         
-        if !self.cancelled {
+        if !self.isCancelled {
             // Set appRecordList to the result of our parsing
             self.appRecordList = self.workingArray
         }
         
-        self.workingArray = nil
-        self.workingPropertyString = nil
-        self.dataToParse = nil
+        self.workingArray = []
+        self.workingPropertyString = ""
+        self.dataToParse = Data()
     }
     
     
@@ -92,39 +92,39 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:didStartElement:namespaceURI:qualifiedName:attributes:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
         // entry: { id (link), im:name (app name), im:image (variable height) }
         //
         if elementName == kEntryStr {
             self.workingEntry = AppRecord()
         }
-        self.storingCharacterData = self.elementsToParse.indexOf(elementName) != nil
+        self.storingCharacterData = self.elementsToParse.index(of: elementName) != nil
     }
     
     // -------------------------------------------------------------------------------
     //	parser:didEndElement:namespaceURI:qualifiedName:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if self.workingEntry != nil {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if let workingEntry = self.workingEntry {
             if self.storingCharacterData {
                 let trimmedString =
-                self.workingPropertyString?.stringByTrimmingCharactersInSet(
-                    NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                self.workingPropertyString.trimmingCharacters(
+                    in: CharacterSet.whitespacesAndNewlines)
                 self.workingPropertyString = ""
                 switch elementName {
                 case kIDStr:
-                    self.workingEntry!.appURLString = trimmedString
+                    workingEntry.appURLString = trimmedString
                 case kNameStr:
-                    self.workingEntry!.appName = trimmedString
+                    workingEntry.appName = trimmedString
                 case kImageStr:
-                    self.workingEntry!.imageURLString = trimmedString
+                    workingEntry.imageURLString = trimmedString
                 case kArtistStr:
-                    self.workingEntry!.artist = trimmedString
+                    workingEntry.artist = trimmedString
                 default:
                     break
                 }
             } else if elementName == kEntryStr {
-                self.workingArray?.append(self.workingEntry!)
+                workingArray.append(workingEntry)
                 self.workingEntry = nil
             }
         }
@@ -133,16 +133,16 @@ class ParseOperation: NSOperation, NSXMLParserDelegate {
     // -------------------------------------------------------------------------------
     //	parser:foundCharacters:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         if storingCharacterData {
-            self.workingPropertyString? += string
+            self.workingPropertyString += string
         }
     }
     
     // -------------------------------------------------------------------------------
     //	parser:parseErrorOccurred:
     // -------------------------------------------------------------------------------
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         self.errorHandler?(parseError)
     }
     
