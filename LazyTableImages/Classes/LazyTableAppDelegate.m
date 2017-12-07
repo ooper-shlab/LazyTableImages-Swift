@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2015 Apple Inc. All Rights Reserved.
+ Copyright (C) 2017 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
  
  Abstract:
@@ -33,6 +33,11 @@ static NSString *const TopPaidAppsFeed =
 
 @implementation LazyTableAppDelegate
 
+// The app delegate must implement the window @property
+// from UIApplicationDelegate @protocol to use a main storyboard file.
+//
+@synthesize window;
+
 // -------------------------------------------------------------------------------
 //	application:didFinishLaunchingWithOptions:
 // -------------------------------------------------------------------------------
@@ -41,8 +46,9 @@ static NSString *const TopPaidAppsFeed =
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:TopPaidAppsFeed]];
     
     // create an session data task to obtain and the XML feed
-    NSURLSessionDataTask *sessionTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
-                                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask *sessionTask =
+		[[NSURLSession sharedSession] dataTaskWithRequest:request
+										completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         // in case we want to know the response status code
         //NSInteger HTTPStatusCode = [(NSHTTPURLResponse *)response statusCode];
         
@@ -85,25 +91,22 @@ static NSString *const TopPaidAppsFeed =
             __weak ParseOperation *weakParser = self.parser;
             
             self.parser.completionBlock = ^(void) {
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                if (weakParser.appRecordList != nil)
-                {
-                    // The completion block may execute on any thread.  Because operations
-                    // involving the UI are about to be performed, make sure they execute on the main thread.
-                    //
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        // The root rootViewController is the only child of the navigation
-                        // controller, which is the window's rootViewController.
-                        //
-                        RootViewController *rootViewController =
-                            (RootViewController*)[(UINavigationController*)weakSelf.window.rootViewController topViewController];
-                        
-                        rootViewController.entries = weakParser.appRecordList;
-                        
-                        // tell our table view to reload its data, now that parsing has completed
-                        [rootViewController.tableView reloadData];
-                    });
-                }
+				// The completion block may execute on any thread.  Because operations
+				// involving the UI are about to be performed, make sure they execute on the main thread.
+				//
+				dispatch_async(dispatch_get_main_queue(), ^{
+					[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+					if (weakParser.appRecordList != nil)
+					{
+						RootViewController *rootViewController =
+							(RootViewController *)[(UINavigationController *)weakSelf.window.rootViewController topViewController];
+						
+						rootViewController.entries = weakParser.appRecordList;
+						
+						// tell our table view to reload its data, now that parsing has completed
+						[rootViewController.tableView reloadData];
+					}
+				});
                 
                 // we are finished with the queue and our ParseOperation
                 weakSelf.queue = nil;
@@ -131,10 +134,10 @@ static NSString *const TopPaidAppsFeed =
 
     // alert user that our current record was deleted, and then we leave this view controller
     //
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Show Top Paid Apps"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Cannot Show Top Paid Apps", @"")
                                                                    message:errorMessage
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"OK"
+    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"")
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction *action) {
                                                          // dissmissal of alert completed

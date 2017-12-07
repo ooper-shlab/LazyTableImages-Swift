@@ -3,19 +3,19 @@
 Translated by OOPer in cooperation with shlab.jp, on 2015/9/13.
 
 Based on
-<https://developer.apple.com/library/prerelease/ios/samplecode/LazyTableImages/Introduction/Intro.html#//apple_ref/doc/uid/DTS40009394>
-2015-09-09.
+<https://developer.apple.com/library/content/samplecode/LazyTableImages/Introduction/Intro.html#//apple_ref/doc/uid/DTS40009394>
+2017-11-30.
 
 As this is a line-by-line translation from the original sample code, "redistribute the Apple Software in its entirety and without modifications" would apply. See license terms in each file .
 Some faults caused by my translation may exist. Not all features tested.
 You should not contact to Apple or SHLab(jp) about any faults caused by my translation.
 
 ===========================================================================
-BUILD REQUIREMENTS:
+### BUILD REQUIREMENTS:
 
-Xcode 9.1, iOS SDK 11
+Xcode 9.2, iOS SDK 11
 
 ===========================================================================
-RUNTIME REQUIREMENTS:
+### RUNTIME REQUIREMENTS:
 
 iOS 8.0 or later

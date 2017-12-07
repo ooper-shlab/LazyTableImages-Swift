@@ -22,10 +22,9 @@ IconDownloader.{h/m}
 Helper object for managing the downloading of a particular app's icon. It uses NSURLSession/NSURLSessionDataTask to download the app's icon in the background if it does not yet exist and works in conjunction with the RootViewController to manage which apps need their icon.
 
 ## Build Requirements
-+ Xcode 7 or later
-+ iOS 9.0 SDK or later
++ iOS 11.0 SDK or later
 
 ## Runtime Requirements
-+ iOS 7.0 or later
++ iOS 10.0 or later
 
-Copyright (C) 2010-2015 Apple Inc. All rights reserved.
+Copyright (C) 2010-2017 Apple Inc. All rights reserved.

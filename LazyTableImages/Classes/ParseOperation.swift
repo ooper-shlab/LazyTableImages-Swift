@@ -6,7 +6,7 @@
 //
 //
 /*
- Copyright (C) 2015 Apple Inc. All Rights Reserved.
+ Copyright (C) 2017 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
 
  Abstract:
@@ -109,7 +109,7 @@ class ParseOperation: Operation, XMLParserDelegate {
             if self.storingCharacterData {
                 let trimmedString =
                 self.workingPropertyString.trimmingCharacters(
-                    in: CharacterSet.whitespacesAndNewlines)
+                    in: .whitespacesAndNewlines)
                 self.workingPropertyString = ""
                 switch elementName {
                 case kIDStr:

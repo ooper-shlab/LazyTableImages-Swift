@@ -6,7 +6,7 @@
 //
 //
 /*
- Copyright (C) 2015 Apple Inc. All Rights Reserved.
+ Copyright (C) 2017 Apple Inc. All Rights Reserved.
  See LICENSE.txt for this sample’s licensing information
 
  Abstract:
@@ -20,6 +20,9 @@ import UIKit
 @objc(LazyTableAppDelegate)
 class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnectionDataDelegate {
     
+    // The app delegate must implement the window @property
+    // from UIApplicationDelegate @protocol to use a main storyboard file.
+    //
     var window: UIWindow?
     
     
@@ -83,25 +86,22 @@ class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnection
                 // referencing parser from within its completionBlock would create a retain cycle
                 
                 self.parser.completionBlock = {[weak self] in
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    if let recordList = self?.parser.appRecordList {
-                        // The completion block may execute on any thread.  Because operations
-                        // involving the UI are about to be performed, make sure they execute on the main thread.
-                        //
-                        DispatchQueue.main.async {
-                            // The root rootViewController is the only child of the navigation
-                            // controller, which is the window's rootViewController.
-                            //
+                    // The completion block may execute on any thread.  Because operations
+                    // involving the UI are about to be performed, make sure they execute on the main thread.
+                    //
+                    DispatchQueue.main.async {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        if let appRecordList = self?.parser.appRecordList {
                             let rootViewController =
-                            (self?.window!.rootViewController as! UINavigationController?)?.topViewController as! RootViewController?
+                                (self!.window!.rootViewController as! UINavigationController).topViewController as! RootViewController
                             
-                            rootViewController?.entries = recordList
+                            rootViewController.entries = appRecordList
                             
                             // tell our table view to reload its data, now that parsing has completed
-                            rootViewController?.tableView.reloadData()
+                            rootViewController.tableView.reloadData()
                         }
                     }
-                    
+
                     // we are finished with the queue and our ParseOperation
                     self?.queue = nil
                 }
@@ -127,10 +127,10 @@ class LazyTableAppDelegate : UIResponder, UIApplicationDelegate, NSURLConnection
         
         // alert user that our current record was deleted, and then we leave this view controller
         //
-        let alert = UIAlertController(title: "Cannot Show Top Paid Apps",
+        let alert = UIAlertController(title: NSLocalizedString("Cannot Show Top Paid Apps", comment: ""),
                                       message: errorMessage,
                                       preferredStyle: .actionSheet)
-        let OKAction = UIAlertAction(title: "OK", style: .default) {action in
+        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) {action in
             // dissmissal of alert completed
         }
         
